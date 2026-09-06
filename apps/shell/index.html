@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>OpsBoard</title>
+    <style>
+      body {
+        margin: 0;
+        background: #0b0f14;
+        color: #e6edf3;
+        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      }
+      header {
+        display: flex;
+        align-items: center;
+        gap: 24px;
+        padding: 16px 24px;
+        border-bottom: 1px solid #2a3542;
+      }
+      header a {
+        color: #8b98a5;
+        text-decoration: none;
+        font-size: 14px;
+        font-weight: 600;
+      }
+      header a:hover {
+        color: #e6edf3;
+      }
+      main {
+        padding: 24px;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <strong>OpsBoard</strong>
+      <a href="/dashboard" data-testid="nav-dashboard">Dashboard</a>
+      <a href="/alerts" data-testid="nav-alerts">Alerts</a>
+    </header>
+    <main>
+      <div id="dashboard-mfe-container"></div>
+      <div id="alerts-mfe-container"></div>
+    </main>
+
+    <script type="importmap">
+      {
+        "imports": {
+          "@opsboard/dashboard-mfe": "%VITE_DASHBOARD_MFE_URL%",
+          "@opsboard/alerts-mfe": "%VITE_ALERTS_MFE_URL%"
+        }
+      }
+    </script>
+    <script type="module" src="/src/opsboard-root-config.ts"></script>
+  </body>
+</html>
